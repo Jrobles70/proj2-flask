@@ -1,4 +1,4 @@
-# Project 1 Page Server
+# Project 2 Flask Date-Aware Syllabus
 
 This is a simple flask server that reads a schedule txt file and displays each week given onto a webpage. The current week will be highlighted in bright green.
 
