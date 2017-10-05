@@ -51,11 +51,12 @@ def process(raw):
                 entry = {}
             entry['topic'] = ""
             entry['project'] = ""
-            weekDate = base.shift(weeks=+int(content)).format("MM/DD")
-            if weekDate == arrow.now().format("MM/DD"):
-                entry['currWeek'] = "{}\n{}".format(content, weekDate)
+            
+            weekDate = base.shift(weeks=+(int(content) - 1))
+            if weekDate.span('week') == arrow.now().span('week'):
+                entry['currWeek'] = "{}\n{}".format(content, weekDate.format("MM/DD"))
             else:
-                entry['week'] = "{}\n{}".format(content, weekDate)
+                entry['week'] = "{}\n{}".format(content, weekDate.format("MM/DD"))
 
         elif field == 'topic' or field == 'project':
             entry[field] = content
